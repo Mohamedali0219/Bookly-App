@@ -1,4 +1,5 @@
 import 'package:bookly_app/Features/splash/peresentation/views/spalsh_view.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SpalshView(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData().copyWith(scaffoldBackgroundColor: kPrimaryColor),
+      home: const SpalshView(),
     );
   }
 }
