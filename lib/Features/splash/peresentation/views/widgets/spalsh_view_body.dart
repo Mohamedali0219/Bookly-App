@@ -1,9 +1,8 @@
-import 'package:bookly_app/Features/home/peresention/views/home_view.dart';
 import 'package:bookly_app/Features/splash/peresentation/views/widgets/sliding_animation_text.dart';
-import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/utils/app_routers.dart';
 import 'package:bookly_app/core/utils/assests_data.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SpalshViewBody extends StatefulWidget {
   const SpalshViewBody({
@@ -70,12 +69,18 @@ class _SpalshViewBodyState extends State<SpalshViewBody>
 
   void navigatHome() {
     //! if i need to make some calculates to navigat to home extract it to anther method to keep the single responsibility on the method code
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-        const HomeView(),
-        transition: Transition.fade,
-        duration: kTrnasitionDuration,
-      );
-    });
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        // Get.to(
+        //   const HomeView(),
+        //   transition: Transition.fade,
+        //   duration: kTrnasitionDuration,
+        // );
+        GoRouter.of(context).push(
+          AppRouters.kHomeView,
+        );
+      },
+    );
   }
 }
