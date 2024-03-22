@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/peresention/views/widgets/best_saller_listview_item.dart';
+import 'package:bookly_app/Features/home/peresention/views/widgets/book_details_item.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewBuilder extends StatelessWidget {
@@ -18,7 +18,7 @@ class BestSellerListViewBuilder extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.only(bottom: 10),
-              child: BestSellerItem(),
+              child: BookDetailsItem(),
             );
           }),
     );
