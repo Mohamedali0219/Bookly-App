@@ -1,4 +1,5 @@
 import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
+import 'package:bookly_app/Features/home/data/repos/home_repo_implement.dart';
 import 'package:bookly_app/Features/home/peresention/manager/featuer_books_cubit/featuer_books_cubit.dart';
 import 'package:bookly_app/Features/home/peresention/manager/newest_book_cubit/newest_book_cubit.dart';
 import 'package:bookly_app/constant.dart';
@@ -21,9 +22,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) => FeatuerBooksCubit(getIt.get<HomeRepo>())),
+            create: (context) =>
+                FeatuerBooksCubit(getIt.get<HomeRepoImplement>())
+                  ..fetchFeaturedBooks()),
         BlocProvider(
-            create: (context) => NewestBookCubit(getIt.get<HomeRepo>()))
+            create: (context) =>
+                NewestBookCubit(getIt.get<HomeRepoImplement>()))
       ],
       child: MaterialApp.router(
         routerConfig: AppRouters.router,
