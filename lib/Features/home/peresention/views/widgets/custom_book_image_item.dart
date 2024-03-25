@@ -2,7 +2,9 @@ import 'package:bookly_app/core/utils/assests_data.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImageItem extends StatelessWidget {
-  const CustomBookImageItem({super.key});
+  const CustomBookImageItem({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,8 @@ class CustomBookImageItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.amber,
             borderRadius: BorderRadius.circular(10),
-            image: const DecorationImage(
-                image: AssetImage(AssetsData.imageTest), fit: BoxFit.fill),
+            image: DecorationImage(
+                image: NetworkImage(imageUrl), fit: BoxFit.fill),
           ),
         ),
       ),

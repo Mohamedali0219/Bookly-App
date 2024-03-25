@@ -14,7 +14,10 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: widthScreen * 0.2),
-          child: const CustomBookImageItem(),
+          child: const CustomBookImageItem(
+            imageUrl:
+                'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-980x653.jpg',
+          ),
         ),
         const SizedBox(
           height: 48,

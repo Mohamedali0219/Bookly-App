@@ -17,7 +17,10 @@ class FeaturedBookListViewBuilder extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.3,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => const CustomBookImageItem(),
+              itemCount: state.books.length,
+              itemBuilder: (context, index) => CustomBookImageItem(
+                imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+              ),
             ),
           );
         } else if (state is FeatuerBooksFailure) {

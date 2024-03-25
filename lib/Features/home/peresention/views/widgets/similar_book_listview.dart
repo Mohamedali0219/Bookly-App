@@ -10,7 +10,10 @@ class SimilarBookListView extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.15,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const CustomBookImageItem(),
+        itemBuilder: (context, index) => const CustomBookImageItem(
+          imageUrl:
+              'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-980x653.jpg',
+        ),
       ),
     );
   }
