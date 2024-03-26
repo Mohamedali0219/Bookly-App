@@ -1,5 +1,9 @@
+import 'package:bookly_app/Features/home/peresention/manager/newest_book_cubit/newest_book_cubit.dart';
 import 'package:bookly_app/Features/home/peresention/views/widgets/book_details_item.dart';
+import 'package:bookly_app/core/utils/widgets/custom_error_message.dart';
+import 'package:bookly_app/core/utils/widgets/custom_loading_indecator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BestSellerListViewBuilder extends StatelessWidget {
   const BestSellerListViewBuilder({
@@ -8,19 +12,31 @@ class BestSellerListViewBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MediaQuery.removePadding(
-      context: context,
-      removeTop: true,
-      child: ListView.builder(
-          //  shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.only(bottom: 10),
-              child: BookDetailsItem(),
-            );
-          }),
+    return BlocBuilder<NewestBookCubit, NewestBookState>(
+      builder: (context, state) {
+        if (state is NewestBookSuccess) {
+          return MediaQuery.removePadding(
+            context: context,
+            removeTop: true,
+            child: ListView.builder(
+                //  shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: state.books.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: BookDetailsItem(
+                      bookModel: state.books[index],
+                    ),
+                  );
+                }),
+          );
+        } else if (state is NewestBookFailure) {
+          return CustomErrorMessage(errMessage: state.errMessage);
+        } else {
+          return const CustomlaodingIndecator();
+        }
+      },
     );
   }
 }
