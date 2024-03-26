@@ -13,8 +13,9 @@ class BookDetailsViewBody extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: CustomScrollView(slivers: [
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: CustomScrollView(
+            slivers: [
               SliverFillRemaining(
                 child: Column(
                   children: [
@@ -22,16 +23,14 @@ class BookDetailsViewBody extends StatelessWidget {
                     BookDetailsSection(
                       bookModel: bookModel,
                     ),
-                    const Expanded(
-                      child: SizedBox(
-                        height: 37,
-                      ),
-                    ),
+                    const SizedBox(height: 10),
                     const SimilarBooksSection()
                   ],
                 ),
               )
-            ])),
+            ],
+          ),
+        ),
       ),
     );
   }

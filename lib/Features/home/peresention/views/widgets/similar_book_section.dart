@@ -18,9 +18,6 @@ class SimilarBooksSection extends StatelessWidget {
           height: 16,
         ),
         const SimilarBookListView(),
-        const SizedBox(
-          height: 40,
-        )
       ],
     );
   }

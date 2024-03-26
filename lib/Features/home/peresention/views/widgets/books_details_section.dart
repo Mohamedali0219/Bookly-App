@@ -22,7 +22,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 48,
+          height: 10,
         ),
         Text(
           bookModel.volumeInfo!.title!,
@@ -50,7 +50,9 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 37,
         ),
-        const BooksAction(),
+        BooksAction(
+          bookModel: bookModel,
+        ),
       ],
     );
   }
