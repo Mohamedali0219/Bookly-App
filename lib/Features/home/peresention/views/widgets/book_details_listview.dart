@@ -34,7 +34,7 @@ class BestSellerListViewBuilder extends StatelessWidget {
         } else if (state is NewestBookFailure) {
           return CustomErrorMessage(errMessage: state.errMessage);
         } else {
-          return const CustomlaodingIndecator();
+          return const CustomLaodingIndecator();
         }
       },
     );
